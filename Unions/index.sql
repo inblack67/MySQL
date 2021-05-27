@@ -4,3 +4,8 @@ select first_name from customers
 union
 select name from shippers
 -- col names are required (not * will work)
+
+-- union all does not remove duplicate rows
+select first_name from customers
+union
+select name from shippers
