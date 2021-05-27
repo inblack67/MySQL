@@ -50,3 +50,28 @@ on c.customer_id = o.customer_id
 join
 order_statuses s
 on s.order_status_id = o.status
+
+-- compound joins => multiple conditions to join tables => when one primary key is not enough to uniquely identify a row in a table
+select * from order_items oi 
+join
+order_item_notes oin
+on
+oi.order_id = oin.order_id
+and
+oi.product_id = oin.product_id
+
+-- implicit join
+
+select * from orders o, customers c
+where c.customer_id = o.customer_id
+
+-- above query eq to => 
+
+select * from orders o
+join
+customers c
+on o.customer_id = c.customer_id
+
+-- implicit joins if where class is not present => you'll get a cross join so explicit joins should be used as they force you to write join conditions
+
+
