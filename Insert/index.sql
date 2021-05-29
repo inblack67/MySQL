@@ -33,4 +33,13 @@ shippers (name)
 values ("john"), ("doe")
 
 -- insert heirarchical rows
-
+insert into
+orders (customer_id, order_date, status)
+values (1, '2019-02-02', 1);
+insert into order_items
+values (
+    LAST_INSERT_ID(), -- returns the id of the last inserted record in the db => which is an order in this case (above query)
+    1,
+    1,
+    2.5
+);
